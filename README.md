@@ -21,6 +21,9 @@ make
 ./demo
 ```
 
+Makefile location:
+https://github.com/therebedragons101/vala_library_tutorial/blob/master/src/Makefile
+
 Note that demo can be run without installing libraries by 
 ```bash
 export LD_LIBRARY_PATH=/path/to/my/libraries
