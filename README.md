@@ -11,6 +11,14 @@ This builds following:
 - .gir (in /includes folder) g-object-introspection file for use in languages where this is supported
 - .typedir (in /includes folder) used to create language bindings for library
 
+IMPORTANT!
+Note that currently there is a bug in gir generation where it fails on resolving
+parent class when both objects are in same namespace in same library. To solve that
+simple hack like https://github.com/therebedragons101/g_data_binding_lib/blob/master/src/gir_temporary_fix.sh
+can be used to get around it. Just replace namespace needed so it will be replaced 
+by nothing and typelib generation will work. As how to include it in build by default
+https://github.com/therebedragons101/g_data_binding_lib/blob/master/src/Makefile
+
 # Howto edit Makefile in src folder
 
 Edit COMMON_NAME and NAME_SUFFIX to control library name (also, be sure to rename 
