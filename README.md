@@ -1,8 +1,15 @@
-# Simplest just works build system for Vala library
+# Simplest "just works" build system for Vala library
 
 Once things are understood, complex build systems like autotools will probably do
 far better job than this Makefile
 
+This builds following:
+- Library (in /bin folder)
+- Demo (in /bin folder)
+- .vapi (in /includes folder) for library use in Vala 
+- .h (in /includes folder) for library use with languages where C headers are supported
+- .gir (in /includes folder) g-object-introspection file for use in languages where this is supported
+- .typedir (in /includes folder) used to create language bindings for library
 
 # Howto edit Makefile in src folder
 
