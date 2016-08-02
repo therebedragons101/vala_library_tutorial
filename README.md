@@ -50,4 +50,5 @@ export LD_LIBRARY_PATH=/path/to/my/libraries
 - add .pc and .deps generation
 - add resource bundling
 - add rpm/deb generation
+- add in code documentation building with valadoc
 - devassistant support
