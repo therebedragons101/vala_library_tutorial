@@ -4,7 +4,7 @@ Once things are understood, complex build systems like autotools will probably d
 far better job than this Makefile
 
 
-** Edit Makefile in src folder **
+# Howto edit Makefile in src folder
 
 Edit COMMON_NAME and NAME_SUFFIX to control library name (also, be sure to rename 
 main file in src folder as there are otherwise some inconveniences in typedir 
