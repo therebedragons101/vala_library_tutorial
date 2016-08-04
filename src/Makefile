@@ -26,19 +26,24 @@ export GI_TYPELIB_PATH := $(shell pwd)
 COMMON_NAME := vala_library_tutorial
 NAME_SUFFIX := _lib
 LIBRARY_NAME := ${COMMON_NAME}${NAME_SUFFIX}
+INCLUDES := ../includes/
+BIN := ../bin/
+RESOURCE := ../resources/
 
 LIB_MAJOR := 0
 LIB_MINOR := 1
 LIB_VERSION := ${LIB_MAJOR}.${LIB_MINOR}
 
 # add source files needed to be included with library here
-SOURCES := ${LIBRARY_NAME}.vala
+SOURCES := ${LIBRARY_NAME}.vala \
+           ${RESOURCE}lib.*
+
+DEMO_SOURCES := demos/demo/main.vala \
+                ${RESOURCE}demo.*
 
 # define packages and possibile incude folders
 PACKAGES := --pkg gio-2.0
 DEMO_PACKAGES := --pkg gtk+-3.0
-INCLUDES := ../includes/
-BIN := ../bin/
 
 ##
 # TODO
@@ -56,7 +61,8 @@ BIN := ../bin/
 # When there is no additional needs this doesn't need to be edited unless
 # tweaking is required
 ##
-all: ${LIBRARY_NAME}.so \
+all: resources \
+     ${LIBRARY_NAME}.so \
      demo \
      ${COMMON_NAME}${NAME_SUFFIX}-${LIB_VERSION}.typelib \
      move-binaries-to-bin
@@ -67,14 +73,8 @@ run-g_${COMMON_NAME}_lib:
 
 # Vala
 
-csource:
-	valac \
-	-H ${INCLUDES}${LIBRARY_NAME}.h \
-	-C \
-	--vapi=${INCLUDES}${LIBRARY_NAME}${LIB_MAJOR}.vapi \
-	--library=${LIBRARY_NAME}${LIB_MAJOR} \
-	${PACKAGES} \
-	${SOURCES}
+resources:
+	sh ../scripts/build_resources.sh
 
 ${LIBRARY_NAME}.so:
 	valac \
@@ -100,7 +100,7 @@ demo:
 	valac \
 		${PACKAGES} \
 		${DEMO_PACKAGES} \
-		demos/demo/main.vala \
+		${DEMO_SOURCES} \
 		${INCLUDES}${LIBRARY_NAME}${LIB_MAJOR}.vapi \
 		-X -I${INCLUDES} \
 		-X ${LIBRARY_NAME}${LIB_MAJOR}.so \
