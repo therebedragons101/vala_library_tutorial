@@ -10,6 +10,7 @@ This builds following:
 - .h (in /includes folder) for library use with languages where C headers are supported
 - .gir (in /includes folder) g-object-introspection file for use in languages where this is supported
 - .typedir (in /includes folder) used to create language bindings for library
+- Resource autodetection and bundling (read resources/.content howto use)
 
 IMPORTANT!
 Note that currently there is a bug in gir generation where it fails on resolving
@@ -48,7 +49,6 @@ export LD_LIBRARY_PATH=/path/to/my/libraries
 # TODO
 
 - add .pc and .deps generation
-- add resource bundling
 - add rpm/deb generation
 - add in code documentation building with valadoc
 - devassistant support
