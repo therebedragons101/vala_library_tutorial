@@ -47,10 +47,10 @@ DEMO_PACKAGES := --pkg gtk+-3.0
 
 ##
 # TODO
-# - resource bundling
 # - .pc and .deps generation
 # - rpm and deb package building
 # - devassistant support
+# - Flatpak support
 ##
 
 ############################################################################
