@@ -1,6 +1,10 @@
-Generated resource .c and .h files will be placed here for all found .resource files
+Generated resource .c and .h files will be placed here for all found .resource files. As
+long as xml file under src/ has .resource extension it will be found and built here
 
-They need to be included in source list in makefile like:
-	
+There are two files already src/data/lib.resource and src/demos/demo/demo.resource as
+example
+
+They need to be included in source files list in makefile like:
+	${RESOURCE}name.*
 
 See http://www.valadate.org:8000/#!api=gio-2.0/GLib.Resource for more information
